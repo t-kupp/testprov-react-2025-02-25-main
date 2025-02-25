@@ -20,6 +20,7 @@ export default function Question4() {
     const data = await res.json();
     setUsers(data);
   }
+
   return (
     <div>
       <h1>Question 4</h1>

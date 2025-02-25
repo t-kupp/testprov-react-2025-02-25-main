@@ -24,7 +24,7 @@ export default function Question5() {
 function ThemeButton() {
   const { toggleTheme } = useContext(ThemeContext);
   return (
-    <button className='px-2 py-1 border bg-white text-black' onClick={toggleTheme}>
+    <button className='px-2 py-1 border bg-white text-black hover:bg-slate-200' onClick={toggleTheme}>
       Toggle Theme
     </button>
   );

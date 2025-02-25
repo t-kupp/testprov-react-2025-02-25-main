@@ -1,5 +1,5 @@
-const { UserContext } = require('@/context/UserContext');
-const { useContext } = require('react');
+import { UserContext } from '@/context/UserContext';
+import { useContext } from 'react';
 
 export default function Users() {
   const { users } = useContext(UserContext);
@@ -12,8 +12,8 @@ export default function Users() {
         </tr>
       </thead>
       <tbody>
-        {users.map((user, index) => (
-          <tr key={index}>
+        {users.map((user) => (
+          <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.email}</td>
           </tr>
