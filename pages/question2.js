@@ -32,7 +32,13 @@ function User({ users, handleClick, showIndex }) {
   return (
     <div>
       {users[showIndex]}
-      <div className='flex'>{showIndex != users.length - 1 && <button onClick={handleClick}>Next</button>}</div>
+      <div className='flex'>
+        {showIndex != users.length - 1 && (
+          <button className='px-2 py-1 border rounded hover:bg-slate-200' onClick={handleClick}>
+            Next
+          </button>
+        )}
+      </div>
     </div>
   );
 }

@@ -28,10 +28,14 @@ export default function Question1() {
   return (
     <div>
       <h1>Question 1</h1>
-      <div className='flex gap-4'>
-        <button onClick={decrement}>-1</button>
+      <div className='flex gap-4 items-center'>
+        <button className='px-2 py-1 border rounded hover:bg-slate-200' onClick={decrement}>
+          -1
+        </button>
         {value % 2 === 0 ? <p className='text-red-500'>{value}</p> : <p className='text-blue-500'>{value}</p>}
-        <button onClick={increment}>+1</button>
+        <button className='px-2 py-1 border rounded hover:bg-slate-200' onClick={increment}>
+          +1
+        </button>
       </div>
     </div>
   );
