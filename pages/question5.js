@@ -11,10 +11,11 @@ import { useContext } from 'react';
 
 export default function Question5() {
   const { useDarkMode } = useContext(ThemeContext);
+  console.log('useDarkMode:', useDarkMode);
 
   return (
-    <div className={useDarkMode ? 'bg-white h-screen' : 'bg-black h-screen'}>
-      <h1 className={useDarkMode ? 'text-black' : 'text-white'}>Question 5</h1>
+    <div className={useDarkMode ? 'bg-black h-screen' : 'bg-white h-screen'}>
+      <h1 className={useDarkMode ? 'text-white' : 'text-black'}>Question 5</h1>
       <ThemeButton />
     </div>
   );

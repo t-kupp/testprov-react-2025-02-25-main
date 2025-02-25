@@ -4,9 +4,22 @@
 // Skapa en länk till sidan /users och visa listan med användare där.
 // för varje användare ska `name`och `email` visas.
 
+import { UserContext } from '@/context/UserContext';
 import Link from 'next/link';
+import { useEffect, useContext } from 'react';
 
 export default function Question4() {
+  const { setUsers } = useContext(UserContext);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await res.json();
+    setUsers(data);
+  }
   return (
     <div>
       <h1>Question 4</h1>
