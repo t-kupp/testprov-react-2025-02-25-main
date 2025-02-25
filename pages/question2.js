@@ -14,31 +14,32 @@ import { useState } from 'react';
 
 export default function Question2() {
   const [users, setUsers] = useState(['Fred', 'Sven', 'Anna', 'Per']);
-  const [showIndex, setShowIndex] = useState(0);
 
-  function handleClick() {
-    setShowIndex(showIndex + 1);
+  function handleClick(i) {
+    let data = [...users];
+    [data[i], data[i + 1]] = [data[i + 1], data[i]];
+    setUsers(data);
   }
 
   return (
     <div>
       <h1>Question 2</h1>
-      <User users={users} handleClick={handleClick} showIndex={showIndex} />
+      {users.map((user, index) => (
+        <User key={index} index={index} name={user} handleClick={handleClick} usersLength={users.length} />
+      ))}
     </div>
   );
 }
 
-function User({ users, handleClick, showIndex }) {
+function User({ name, handleClick, usersLength, index }) {
   return (
-    <div>
-      {users[showIndex]}
-      <div className='flex'>
-        {showIndex != users.length - 1 && (
-          <button className='px-2 py-1 border rounded hover:bg-slate-200' onClick={handleClick}>
-            Next
-          </button>
-        )}
-      </div>
+    <div className='flex items-center gap-2'>
+      <p>{name}</p>
+      {index < usersLength - 1 && (
+        <button className='border rounded px-2 py-1 hover:bg-slate-200' onClick={() => handleClick(index)}>
+          Move forward
+        </button>
+      )}
     </div>
   );
 }
