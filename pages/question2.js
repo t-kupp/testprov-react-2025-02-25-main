@@ -22,7 +22,7 @@ export default function Question2() {
   }
 
   return (
-    <div>
+    <div className='p-8'>
       <h1>Question 2</h1>
       {users.map((user, index) => (
         <User key={index} index={index} name={user} handleClick={handleClick} usersLength={users.length} />
@@ -33,8 +33,8 @@ export default function Question2() {
 
 function User({ name, handleClick, usersLength, index }) {
   return (
-    <div className='flex items-center gap-2'>
-      <p>{name}</p>
+    <div className='flex items-center gap-2 p-1'>
+      <p className='w-12'>{name}</p>
       {index < usersLength - 1 && (
         <button className='border rounded px-2 py-1 hover:bg-slate-200' onClick={() => handleClick(index)}>
           Move forward
