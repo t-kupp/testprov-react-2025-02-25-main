@@ -16,8 +16,8 @@ export default function Question2() {
   const [users, setUsers] = useState(['Fred', 'Sven', 'Anna', 'Per']);
 
   function handleClick(i) {
-    let data = [...users];
-    [data[i], data[i + 1]] = [data[i + 1], data[i]];
+    let newUsers = [...users];
+    [newUsers[i], newUsers[i + 1]] = [newUsers[i + 1], newUsers[i]];
     setUsers(data);
   }
 
