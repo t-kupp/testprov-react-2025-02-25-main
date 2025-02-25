@@ -6,10 +6,25 @@
 // Byt bakgrundsfärg på denna sida beroende på tema.
 // Hela sidan ska vara svart om temat är dark och vit om temat är light.
 
+import { ThemeContext } from '@/context/ThemeContext';
+import { useContext } from 'react';
+
 export default function Question5() {
+  const { useDarkMode } = useContext(ThemeContext);
+
   return (
-    <div>
-      <h1>Question 5</h1>
+    <div className={useDarkMode ? 'bg-white h-screen' : 'bg-black h-screen'}>
+      <h1 className={useDarkMode ? 'text-black' : 'text-white'}>Question 5</h1>
+      <ThemeButton />
     </div>
+  );
+}
+
+function ThemeButton() {
+  const { toggleTheme } = useContext(ThemeContext);
+  return (
+    <button className='px-2 py-1 border bg-white text-black' onClick={toggleTheme}>
+      Toggle Theme
+    </button>
   );
 }
