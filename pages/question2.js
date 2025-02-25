@@ -18,7 +18,7 @@ export default function Question2() {
   function handleClick(i) {
     let newUsers = [...users];
     [newUsers[i], newUsers[i + 1]] = [newUsers[i + 1], newUsers[i]];
-    setUsers(data);
+    setUsers(newUsers);
   }
 
   return (
